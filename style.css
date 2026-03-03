@@ -91,17 +91,28 @@ section {
     gap: 10px;
 }
 
+/* 버튼 스타일 최적화 */
 a {
     display: inline-block;
-    padding: 12px 24px;
+    padding: 12px 28px;
     background-color: var(--point-color);
     color: white;
     text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    width: fit-content;
+    border-radius: 25px; /* 더 둥근 알약 모양으로 변경하여 앱 감성 강조 */
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(10, 132, 255, 0.3); /* 살짝 푸른 빛의 그림자 */
 }
 
+a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(10, 132, 255, 0.4);
+    filter: brightness(1.1);
+}
 /* 7. 모바일 대응 (반응형) */
 @media (max-width: 600px) {
     header { padding: 40px 15px; }
