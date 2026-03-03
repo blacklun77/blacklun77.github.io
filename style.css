@@ -94,3 +94,13 @@ footer {
     h1 { font-size: 1.5rem; }
     section { width: 95%; }
 }
+
+
+/* 지원 섹션 버튼 간격 조절 */
+.support-links a {
+    margin-right: 10px;
+    margin-bottom: 5px;
+    border: none;
+}
+
+/* 투네이션 버튼처럼 밝은 배경의 버튼은 글자색을 어둡게 유지하는 것이 가독성에 좋습니다. */
