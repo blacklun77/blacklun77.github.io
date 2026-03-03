@@ -1,0 +1,96 @@
+/* * 앱 개발자 포트폴리오 전용 다크 모드 스타일시트
+ * 작성일: 2026-03-03
+ */
+
+/* 1. 기본 테마 변수 설정: 유지보수를 위해 색상을 변수로 관리합니다. */
+:root {
+    --bg-color: #121212;       /* 배경색: 깊은 다크 그레이 */
+    --card-bg: #1e1e1e;        /* 카드 배경: 약간 밝은 그레이 */
+    --text-main: #e0e0e0;      /* 메인 텍스트: 눈이 편한 오프 화이트 */
+    --text-sub: #b0b0b0;       /* 서브 텍스트: 회색 */
+    --point-color: #0a84ff;    /* 포인트 컬러: iOS 스타일 블루 */
+    --border-color: #333333;   /* 경계선 색상 */
+}
+
+/* 2. 전체 레이아웃 설정 */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 3. 헤더 및 섹션 스타일 */
+header {
+    width: 100%;
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+h1 {
+    color: var(--point-color);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+section {
+    width: 90%;
+    max-width: 800px;
+    padding: 40px 0;
+}
+
+/* 4. 프로젝트 카드 스타일 (앱 스토어 카드 느낌) */
+.project-item {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px; /* 둥근 모서리로 모바일 앱 UI 느낌 강조 */
+    padding: 24px;
+    margin-top: 20px;
+    transition: transform 0.3s ease; /* 호버 애니메이션 */
+}
+
+.project-item:hover {
+    transform: translateY(-5px); /* 마우스 올렸을 때 살짝 뜨는 효과 */
+}
+
+.project-item h3 {
+    margin-top: 0;
+    color: var(--point-color);
+}
+
+/* 5. 버튼 스타일 (보안 및 가독성 고려) */
+a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: var(--point-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+a:hover {
+    filter: brightness(1.2); /* 버튼 호버 시 밝게 */
+}
+
+/* 6. 푸터 */
+footer {
+    margin-top: auto;
+    padding: 40px;
+    font-size: 0.8rem;
+    color: var(--text-sub);
+}
+
+/* 7. 반응형 대응 (모바일 우선) */
+@media (max-width: 600px) {
+    h1 { font-size: 1.5rem; }
+    section { width: 95%; }
+}
