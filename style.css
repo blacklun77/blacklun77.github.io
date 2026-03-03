@@ -102,5 +102,34 @@ footer {
     margin-bottom: 5px;
     border: none;
 }
-
 /* 투네이션 버튼처럼 밝은 배경의 버튼은 글자색을 어둡게 유지하는 것이 가독성에 좋습니다. */
+
+/* 기술 스택 로고 레이아웃 */
+.tech-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.tech-item img {
+    /* 다크모드에서 잘 보이도록 필요한 경우 필터 적용 가능 */
+    transition: transform 0.2s ease-in-out;
+}
+
+.tech-item img:hover {
+    transform: scale(1.1); /* 마우스 올리면 살짝 커지는 효과 */
+}
+
+.tech-item span {
+    font-size: 0.8rem;
+    color: var(--text-sub);
+}
