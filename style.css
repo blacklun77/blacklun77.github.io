@@ -249,3 +249,22 @@ header {
         transform: scale(1.5); 
     }
 }
+
+.contact-info {
+    margin-bottom: 30px;
+}
+
+.email-link {
+    background: none !important; /* 일반 버튼 스타일 해제 */
+    box-shadow: none !important;
+    color: var(--point-color) !important;
+    font-size: 1.1rem;
+    padding: 5px 0 !important;
+    border-bottom: 1px solid transparent;
+    transition: var(--transition);
+}
+
+.email-link:hover {
+    border-bottom: 1px solid var(--point-color);
+    transform: none !important;
+}
