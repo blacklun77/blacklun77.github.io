@@ -206,3 +206,29 @@ footer {
         margin: 0 15px;
     }
 }
+
+/* 기본적으로 영어 문장은 숨김 (초기값 한국어) */
+.lang-en { display: none; }
+
+/* 언어 스위치 버튼 스타일 */
+.lang-switch {
+    display: flex;
+    gap: 5px;
+}
+
+.lang-switch button {
+    background: #333;
+    color: #888;
+    border: 1px solid #444;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    transition: all 0.3s;
+}
+
+.lang-switch button.active {
+    background: var(--point-color);
+    color: white;
+    border-color: var(--point-color);
+}
