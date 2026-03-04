@@ -82,14 +82,31 @@ section {
     text-align: center;
 }
 
-/* 리스트 스타일: 중앙 정렬된 카드 안에서 글자만 왼쪽 정렬 */
+/* 리스트 스타일: 항목들을 가로 한 줄로 나열 */
 .project-item ul {
-    display: inline-block;
-    text-align: left;
+    display: flex;             /* 가로 나열을 위해 플렉스 적용 */
+    flex-wrap: wrap;           /* 화면이 좁아지면 자연스럽게 줄바꿈 */
+    justify-content: center;   /* 가로 중앙 정렬 */
+    gap: 15px;                 /* 항목 사이의 간격 */
     margin: 20px 0;
-    padding-left: 20px;
+    padding: 0;                /* 기본 패딩 제거 */
+    list-style: none;          /* 불렛 포인트(점) 제거 */
     color: var(--text-sub);
     font-size: 0.9rem;
+    width: 100%;               /* 전체 너비 사용 */
+}
+
+.project-item ul li {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;       /* 단어가 잘리지 않고 한 줄에 나오게 설정 */
+}
+
+/* 모바일 대응: 화면이 너무 좁으면 세로로 가독성 있게 조절 */
+@media (max-width: 600px) {
+    .project-item ul {
+        gap: 8px 15px;         /* 위아래 간격 8px, 좌우 간격 15px */
+    }
 }
 
 /* 버튼 스타일: PC에서도 너무 커지지 않게 고정 */
