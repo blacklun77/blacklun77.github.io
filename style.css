@@ -152,3 +152,16 @@ footer {
     font-size: 0.8rem;
     text-align: center;
 }
+
+.tech-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* 배지 사이의 간격 */
+    margin-top: 20px;
+}
+
+.tech-badges img {
+    height: 28px; /* 배지 높이 조절 */
+    cursor: default;
+}
