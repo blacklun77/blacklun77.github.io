@@ -251,7 +251,8 @@ header {
 }
 
 .contact-info {
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
 
 .email-link {
@@ -260,11 +261,14 @@ header {
     color: var(--point-color) !important;
     font-size: 1.1rem;
     padding: 5px 0 !important;
-    border-bottom: 1px solid transparent;
+    border-bottom: 2px solid transparent;
     transition: var(--transition);
+    cursor: pointer;
+    display: inline-flex !important; /* 중앙 정렬 유지 */
 }
 
 .email-link:hover {
-    border-bottom: 1px solid var(--point-color);
-    transform: none !important;
+    border-bottom: 2px solid var(--point-color);
+    transform: translateY(-2px);
+    filter: brightness(1.2);
 }
