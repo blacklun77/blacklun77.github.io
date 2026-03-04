@@ -11,12 +11,16 @@
     <header>
         <nav>
             <strong>blacklun.github.io</strong>
+            <div class="lang-switch">
+                <button onclick="setLanguage('ko')" id="btn-ko" class="active">한</button>
+                <button onclick="setLanguage('en')" id="btn-en">EN</button>
+            </div>
         </nav>
         <div id="hero">
-            <h1>안녕하세요, 앱 개발자 blacklun입니다.</h1>
-            <h1>Hello, I'm blacklun, an App Developer.</h1>
-            <p>사용자의 소중한 데이터를 안전하게 기록하고 시각화하는 모바일 솔루션을 만듭니다.</p>
-            <p>I build mobile solutions that securely record and visualize precious user data.</p>
+            <h1 class="lang-ko">안녕하세요, 앱 개발자 blacklun입니다.</h1>
+            <h1 class="lang-en">Hello, I'm blacklun, an App Developer.</h1>
+            <p class="lang-ko">사용자의 소중한 데이터를 안전하게 기록하고 시각화하는 모바일 솔루션을 만듭니다.</p>
+            <p class="lang-en">I build mobile solutions that securely record and visualize precious user data.</p>
         </div>
     </header>
 
@@ -67,16 +71,23 @@
             <h2>Featured Apps</h2>
 
             <div class="project-item">
-                <h3>내 경조사 장부 (My Event Ledger)</h3>
-                <p><strong>"소중한 마음을 주고받은 기록, 이제 쉽고 깔끔하게 관리하세요."</strong></p>
-                <p><strong>"Manage your records of precious hearts simply and neatly."</strong></p>
+                <h3 class="lang-ko">내 경조사 장부</h3>
+                <h3 class="lang-en">My Event Ledger</h3>
+                <p class="lang-ko"><strong>"소중한 마음을 주고받은 기록, 이제 쉽고 깔끔하게 관리하세요."</strong></p>
+                <p class="lang-en"><strong>"Manage your records of precious hearts simply and neatly."</strong></p>
                 
                 <ul style="color: var(--text-sub); font-size: 0.9rem; text-align: left; max-width: 500px; margin: 10px auto;">
-                    <li>🌐 글로벌 다국어 지원 / Multi-language Support</li>
-                    <li>📊 직관적인 통계 확인 / Intuitive Statistics Dashboard</li>
-                    <li>🔒 <strong>Secure Coding:</strong> 기기 로컬 저장 / Secure Local Storage</li>
-                    <li>🔐 SQLCipher 암호화 적용 / Encrypted Local DB with SQLCipher</li>
-                    <li>🔥 Firebase Remote Config 제어 / Dynamic Control via Firebase</li>
+                    <li class="lang-ko">🌐 글로벌 다국어 지원</li>
+                    <li class="lang-ko">📊 직관적인 통계 확인</li>
+                    <li class="lang-ko">🔒 <strong>Secure Coding:</strong> 기기 로컬 저장</li>
+                    <li class="lang-ko">🔐 SQLCipher 암호화 적용r</li>
+                    <li class="lang-ko">🔥 Firebase Remote Config 제어</li>
+
+                    <li class="lang-en">🌐 Multi-language Support</li>
+                    <li class="lang-en">📊 Intuitive Statistics Dashboard</li>
+                    <li class="lang-en">🔒 <strong>Secure Coding:</strong> Secure Local Storage</li>
+                    <li class="lang-en">🔐 SQLCipher Encrypted Local DB with SQLCipher</li>
+                    <li class="lang-en">🔥 Firebase Remote Config Dynamic Control via Firebase</li>
                 </ul>
 
                 <div class="button-container">
@@ -88,16 +99,23 @@
             </div>
 
             <div class="project-item">
-                <h3>내 평가 기록 (My Eval Record)</h3>
-                <p><strong>개인 성과 데이터의 시각화와 안전한 관리를 위한 솔루션</strong></p>
-                <p><strong>Solution for visualization and secure management of personal performance data</strong></p>
+                <h3 class="lang-ko">내 평가 기록</h3>
+                <h3 class="lang-en">My Eval Record</h3>
+                <p><strong class="lang-ko">개인 성과 데이터의 시각화와 안전한 관리를 위한 솔루션</strong></p>
+                <p><strong class="lang-en">Solution for visualization and secure management of personal performance data</strong></p>
                 
                 <ul style="color: var(--text-sub); font-size: 0.9rem; text-align: left; max-width: 500px; margin: 10px auto;">
-                    <li>🌐 글로벌 다국어 지원 / Multi-language Support</li>
-                    <li>📉 데이터 시각화 차트 / Data Visualization with Line Charts</li>
-                    <li>🔒 <strong>Secure Coding:</strong> 기기 로컬 저장 / Secure Local Storage</li>
-                    <li>🔐 SQLCipher 암호화 적용 / Encrypted Local DB with SQLCipher</li>
-                    <li>🔥 Firebase Remote Config 제어 / Dynamic Control via Firebase</li>
+                    <li class="lang-ko">🌐 글로벌 다국어 지원</li>
+                    <li class="lang-ko">📉 데이터 시각화 차트</li>
+                    <li class="lang-ko">🔒 <strong>Secure Coding:</strong> 기기 로컬 저장</li>
+                    <li class="lang-ko">🔐 SQLCipher 암호화 적용</li>
+                    <li class="lang-ko">🔥 Firebase Remote Config 제어</li>
+
+                    <li class="lang-en">🌐 Multi-language Support</li>
+                    <li class="lang-en">📉 Data Visualization with Line Charts</li>
+                    <li class="lang-en">🔒 <strong>Secure Coding:</strong> Secure Local Storage</li>
+                    <li class="lang-en">🔐 SQLCipher Encrypted Local DB with SQLCipher</li>
+                    <li class="lang-en">🔥 Firebase Remote Config Dynamic Control via Firebase</li>
                 </ul>
 
                 <div class="button-container">
@@ -113,8 +131,8 @@
         <section id="support">
             <h2>Support & Donation</h2>
             <div class="project-item">
-                <p>제 앱이 마음에 드셨다면, 더 나은 개발을 위해 응원해 주세요!</p>
-                <p>If you like my apps, please support for better development!</p>
+                <p class="lang-ko">제 앱이 마음에 드셨다면, 더 나은 개발을 위해 응원해 주세요!</p>
+                <p class="lang-en">If you like my apps, please support for better development!</p>
                 <div class="support-links">
                     <a href="https://ko-fi.com/blacklun" target="_blank" rel="noopener noreferrer" style="background-color: #29abe0;">
                         Support (English / Ko-fi)
@@ -133,13 +151,17 @@
             <div class="security-card">
                 <div class="security-icon">🔒</div>
                 <div class="security-content">
-                    <p><strong>"모든 데이터는 외부 서버 전송 없이 사용자의 기기 내부에만 안전하게 저장됩니다."</strong></p>
-                    <p><strong>"All data is stored securely inside the user's device without any external server transmission."</strong></p>
+                    <p class="lang-ko"><strong>"모든 데이터는 외부 서버 전송 없이 사용자의 기기 내부에만 안전하게 저장됩니다."</strong></p>
+                    <p class="lang-en"><strong>"All data is stored securely inside the user's device without any external server transmission."</strong></p>
                     <hr style="border: 0.5px solid var(--border-color); margin: 15px 0;">
                     <ul style="list-style: none; padding: 0; font-size: 0.9rem; color: var(--text-sub);">
-                        <li>✅ SQLCipher 기반 로컬 DB 암호화 적용 (Encrypted Local DB)</li>
-                        <li>✅ Secure Coding 수칙 준수 (Secure Coding Principles)</li>
-                        <li>✅ 오프라인 우선 설계로 프라이버시 보호 (Offline-first Design)</li>
+                        <li class="lang-ko">✅ SQLCipher 기반 로컬 DB 암호화 적용</li>
+                        <li class="lang-ko">✅ Secure Coding 수칙 준수</li>
+                        <li class="lang-ko">✅ 오프라인 우선 설계로 프라이버시 보호</li>
+                        
+                        <li class="lang-en">✅ SQLCipher Encrypted Local DB</li>
+                        <li class="lang-en">✅ Secure Coding Principles</li>
+                        <li class="lang-en">✅ Offline-first Design</li>
                     </ul>
                 </div>
             </div>
@@ -151,5 +173,25 @@
         <p>&copy; 2026 blacklun. Built with Flutter, SQLite, and Firebase.</p>
     </footer>
 
+    <script>
+        function setLanguage(lang) {
+            const koElements = document.querySelectorAll('.lang-ko');
+            const enElements = document.querySelectorAll('.lang-en');
+            const btnKo = document.getElementById('btn-ko');
+            const btnEn = document.getElementById('btn-en');
+        
+            if (lang === 'ko') {
+                koElements.forEach(el => el.style.display = 'block');
+                enElements.forEach(el => el.style.display = 'none');
+                btnKo.classList.add('active');
+                btnEn.classList.remove('active');
+            } else {
+                koElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display = 'block');
+                btnKo.classList.remove('active');
+                btnEn.classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
