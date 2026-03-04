@@ -250,6 +250,57 @@ header {
     }
 }
 
+/* --- 구름 흘러가는 애니메이션 추가 --- */
+
+.cloud {
+    position: absolute;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.03) 50%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 50%; /* 타원형 구름 베이스 */
+    filter: blur(20px); /* 구름 특유의 부드러운 가장자리 효과 (필수) */
+    opacity: 0.8;
+    animation: moveClouds linear infinite;
+    pointer-events: none; /* 구름이 클릭을 방해하지 않도록 설정 */
+}
+
+/* 구름 개별 스타일 (크기, 위치, 속도 다르게) */
+.cloud-1 {
+    width: 400px;
+    height: 150px;
+    top: 10%;
+    left: -400px; /* 화면 왼쪽 밖에서 시작 */
+    animation-duration: 60s; /* 천천히 이동 */
+    opacity: 0.5;
+}
+
+.cloud-2 {
+    width: 600px;
+    height: 200px;
+    top: 40%;
+    left: -600px;
+    animation-duration: 45s; /* 약간 더 빠르게 */
+    animation-delay: -10s; /* 시작 시 이미 화면에 들어와 있게 */
+}
+
+.cloud-3 {
+    width: 300px;
+    height: 100px;
+    top: 70%;
+    left: -300px;
+    animation-duration: 80s; /* 가장 천천히 */
+    opacity: 0.3;
+}
+
+/* 구름 가로 이동 애니메이션 정의 */
+@keyframes moveClouds {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* 화면 오른쪽 끝까지 이동 (화면 너비 + 구름 너비만큼) */
+        transform: translateX(calc(100vw + 600px)); 
+    }
+}
+
 .contact-info {
     margin-top: 20px;
     margin-bottom: 40px;
