@@ -254,51 +254,50 @@ header {
 
 .cloud {
     position: absolute;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.03) 50%, rgba(255, 255, 255, 0) 100%);
-    border-radius: 50%; /* 타원형 구름 베이스 */
-    filter: blur(20px); /* 구름 특유의 부드러운 가장자리 효과 (필수) */
-    opacity: 0.8;
-    animation: moveClouds linear infinite;
-    pointer-events: none; /* 구름이 클릭을 방해하지 않도록 설정 */
+    /* 투명도를 0.03에서 0.1~0.2 정도로 높여보세요 */
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    filter: blur(40px); /* 더 뭉게지게 하여 부드러운 느낌 강조 */
+    pointer-events: none;
+    z-index: 0;
 }
 
-/* 구름 개별 스타일 (크기, 위치, 속도 다르게) */
+/* 구름 1: 즉시 보이도록 위치 수정 */
 .cloud-1 {
+    width: 300px;
+    height: 120px;
+    top: 15%;
+    left: 10%; /* 화면 안쪽에서 시작하게 변경 */
+    animation: moveClouds 60s linear infinite;
+    opacity: 0.6;
+}
+
+/* 구름 2: 중앙 배치 */
+.cloud-2 {
+    width: 500px;
+    height: 180px;
+    top: 35%;
+    left: 50%;
+    animation: moveClouds 45s linear infinite;
+    animation-delay: -15s; /* 중간부터 시작하게 설정 */
+    opacity: 0.4;
+}
+
+/* 구름 3: 하단 배치 */
+.cloud-3 {
     width: 400px;
     height: 150px;
-    top: 10%;
-    left: -400px; /* 화면 왼쪽 밖에서 시작 */
-    animation-duration: 60s; /* 천천히 이동 */
-    opacity: 0.5;
-}
-
-.cloud-2 {
-    width: 600px;
-    height: 200px;
-    top: 40%;
-    left: -600px;
-    animation-duration: 45s; /* 약간 더 빠르게 */
-    animation-delay: -10s; /* 시작 시 이미 화면에 들어와 있게 */
-}
-
-.cloud-3 {
-    width: 300px;
-    height: 100px;
-    top: 70%;
-    left: -300px;
-    animation-duration: 80s; /* 가장 천천히 */
+    top: 60%;
+    left: 80%;
+    animation: moveClouds 80s linear infinite;
+    animation-delay: -30s;
     opacity: 0.3;
 }
 
-/* 구름 가로 이동 애니메이션 정의 */
+/* 구름 애니메이션 (흐르는 느낌) */
 @keyframes moveClouds {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        /* 화면 오른쪽 끝까지 이동 (화면 너비 + 구름 너비만큼) */
-        transform: translateX(calc(100vw + 600px)); 
-    }
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(200%); }
 }
 
 .contact-info {
