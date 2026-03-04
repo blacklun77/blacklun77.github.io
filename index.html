@@ -221,6 +221,22 @@
                 btnEn.classList.add('active');
             }
         }
+        
+        // 스팸 방지를 위한 이메일 암호화 조립 함수
+        function setupSecureEmail() {
+            const user = "blacklun.yoo";
+            const domain = "gmail.com";
+            const emailAddr = user + "@" + domain;
+            
+            const emailLink = document.getElementById('secure-email');
+            if (emailLink) {
+                emailLink.href = "mailto:" + emailAddr;
+                emailLink.textContent = "✉️ " + emailAddr;
+            }
+        }
+        
+        // 페이지 로드 후 실행
+        window.addEventListener('DOMContentLoaded', setupSecureEmail);
     </script>
 </body>
 </html>
