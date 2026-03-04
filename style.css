@@ -228,7 +228,7 @@ header {
     opacity: 0;
     /* 반짝임이 더 잘 보이도록 그림자 추가 */
     box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
-    animation: twinkle 4s infinite ease-in-out;
+    animation: twinkle 6s infinite ease-in-out;
 }
 
 /* 별들의 개별 위치와 애니메이션 지연 시간 (무작위 느낌) */
