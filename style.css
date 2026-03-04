@@ -208,7 +208,15 @@ footer {
 }
 
 /* 기본적으로 영어 문장은 숨김 (초기값 한국어) */
+.lang-ko { display: inline-block; }
 .lang-en { display: none; }
+
+/* 이미지 배지가 중앙에 잘 오도록 추가 조절 */
+.button-container a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* 언어 스위치 버튼 스타일 */
 .lang-switch {
