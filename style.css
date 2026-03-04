@@ -98,7 +98,7 @@ section {
 
 .project-item ul li {
     width: 100%;
-    text-align: center;        /* 텍스트를 중앙으로 */
+    text-align: left;        /* 텍스트를 왼쪽으로 */
     word-break: keep-all;      /* 단어 단위 줄바꿈 방지 */
     line-height: 1.4;
 }
