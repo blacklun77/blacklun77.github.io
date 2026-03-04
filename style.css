@@ -201,6 +201,7 @@ footer {
 header {
     position: relative; /* 별들을 헤더 안에 가두기 위함 */
     overflow: hidden;   /* 헤더 밖으로 나가는 별 숨김 */
+    background-color: var(--bg-color); /* 배경색 확인 */
 }
 
 .stars-container {
@@ -210,6 +211,7 @@ header {
     width: 100%;
     height: 100%;
     z-index: 0; /* 텍스트 뒤로 보냄 */
+    pointer-events: none; /* 별이 버튼 클릭을 방해하지 않도록 설정 */
 }
 
 #hero {
@@ -219,23 +221,31 @@ header {
 
 .star {
     position: absolute;
-    width: 2px;
-    height: 2px;
-    background: white;
+    width: 3px;         /* 크기를 2px -> 3px로 약간 키움 */
+    height: 3px;
+    background: #ffffff;
     border-radius: 50%;
     opacity: 0;
-    animation: twinkle 3s infinite ease-in-out;
+    /* 반짝임이 더 잘 보이도록 그림자 추가 */
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+    animation: twinkle 4s infinite ease-in-out;
 }
 
 /* 별들의 개별 위치와 애니메이션 지연 시간 (무작위 느낌) */
-.star:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
-.star:nth-child(2) { top: 50%; left: 80%; animation-delay: 1s; }
-.star:nth-child(3) { top: 80%; left: 30%; animation-delay: 2s; }
-.star:nth-child(4) { top: 30%; left: 60%; animation-delay: 1.5s; }
-.star:nth-child(5) { top: 70%; left: 15%; animation-delay: 0.5s; }
+.star:nth-child(1) { top: 15%; left: 15%; animation-delay: 0s; }
+.star:nth-child(2) { top: 40%; left: 85%; animation-delay: 1s; }
+.star:nth-child(3) { top: 70%; left: 25%; animation-delay: 2s; }
+.star:nth-child(4) { top: 25%; left: 70%; animation-delay: 1.5s; }
+.star:nth-child(5) { top: 60%; left: 10%; animation-delay: 0.5s; }
 
 /* 반짝이는 애니메이션 정의 */
 @keyframes twinkle {
-    0%, 100% { opacity: 0; transform: scale(0.5); }
-    50% { opacity: 0.7; transform: scale(1.2); box-shadow: 0 0 10px white; }
+    0%, 100% { 
+        opacity: 0; 
+        transform: scale(0.3); 
+    }
+    50% { 
+        opacity: 1;           /* 투명도를 1로 높임 */
+        transform: scale(1.5); 
+    }
 }
