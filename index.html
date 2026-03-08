@@ -205,7 +205,8 @@
     </footer>
 
     <script>
-        function setLanguage(lang) {
+        // 1. 언어 설정 및 URL 업데이트 함수
+        function setLanguage(lang, updateURL = true) {
             const koElements = document.querySelectorAll('.lang-ko');
             const enElements = document.querySelectorAll('.lang-en');
             const btnKo = document.getElementById('btn-ko');
@@ -222,7 +223,35 @@
                 btnKo.classList.remove('active');
                 btnEn.classList.add('active');
             }
+        
+            // 주소창의 파라미터를 변경 (페이지 새로고침 없음)
+            if (updateURL) {
+                const newURL = window.location.protocol + "//" + window.location.host + window.location.pathname + '?lang=' + lang;
+                window.history.pushState({ path: newURL }, '', newURL);
+            }
         }
+        
+        // 2. 초기 접속 시 언어 판별 로직
+        function initLanguage() {
+            // URL 파라미터 확인 (?lang=en 등)
+            const urlParams = new URLSearchParams(window.location.search);
+            let lang = urlParams.get('lang');
+        
+            // URL에 설정이 없다면 브라우저 기본 언어 확인
+            if (!lang) {
+                const browserLang = navigator.language || navigator.userLanguage;
+                lang = browserLang.startsWith('ko') ? 'ko' : 'en';
+            }
+        
+            // 최종 결정된 언어로 설정 (초기 실행 시엔 URL 업데이트 안 함)
+            setLanguage(lang, false);
+        }
+        
+        // 3. 페이지 로드 완료 시 실행
+        window.addEventListener('DOMContentLoaded', () => {
+            initLanguage();      // 언어 설정 초기화
+            setupSecureEmail();  // 이전 단계에서 만든 이메일 보안 함수 (필요시 유지)
+        });
         
         // 스팸 방지를 위한 이메일 암호화 조립 함수
         function setupSecureEmail() {
