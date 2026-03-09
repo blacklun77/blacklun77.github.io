@@ -114,15 +114,16 @@ nav {
     font-size: 0.9rem;
     text-align: left;
     display: inline-block; /* 박스를 중앙으로, 텍스트는 왼쪽으로 */
-    list-style-position: outside;
-    padding-left: 25px;
+    list-style: none; /* 기본 불렛 제거 후 이모지로 대체 관리 */
+    padding: 0; 
     margin: 10px auto;
-    width: 100%; /* 부모 너비 안에서 정렬 보장 */
-    max-width: 500px; /* 너무 퍼지지 않게 제한 */
+    max-width: 550px; /* 리스트가 너무 넓어지지 않게 조정 */
 }
 
 .project-features li {
-    margin-bottom: 8px; /* 항목 간 간격 확보 */
+    margin-bottom: 8px;
+    line-height: 1.5;
+    word-break: keep-all; /* 단어 단위 줄바꿈으로 깔끔하게 유지 */
 }
 
 /* 배지 스타일 */
