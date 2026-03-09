@@ -108,36 +108,39 @@ nav {
     transition: var(--transition);
 }
 
-/* 프로젝트 특징 리스트 공통 스타일 (좌측 정렬 완벽 대응) */
+/* 프로젝트 특징 리스트 공통 스타일 (정렬 문제 해결판) */
 .project-features {
     color: var(--text-sub);
     font-size: 0.9rem;
     list-style: none;
     padding: 0;
     
-    /* 박스 자체를 중앙으로 보내는 설정 */
-    display: block;
-    margin: 20px auto; 
-    
-    /* 핵심: 너비를 텍스트 길이에 맞추고 좌측 정렬 유지 */
-    width: fit-content;
-    text-align: left; 
+    /* 1. 덩어리 전체를 중앙으로 보내기 */
+    display: table; /* fit-content보다 브라우저 호환성이 더 강력합니다 */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    /* 2. 내부 텍스트는 좌측 정렬 */
+    text-align: left;
 }
 
 .project-features li {
-    margin-bottom: 12px; /* 가독성을 위해 간격 확장 */
+    margin-bottom: 10px;
     line-height: 1.6;
     word-break: keep-all;
     
-    /* 이모지와 텍스트가 수직으로 잘 맞도록 설정 */
+    /* 3. 이모지와 텍스트 간격 정렬 */
     display: flex;
     align-items: flex-start;
 }
 
-/* 이모지 아이콘 정렬용 가상 요소 (선택 사항) */
+/* 이모지(📑, 📊 등)와 글자 사이 간격 */
 .project-features li::before {
     content: '';
-    margin-right: 5px;
+    display: inline-block;
+    width: 5px; /* 미세 간격 조정 */
 }
 
 /* 배지 스타일 */
