@@ -108,38 +108,22 @@ nav {
     transition: var(--transition);
 }
 
-/* 프로젝트 특징 리스트 공통 스타일 (최종 정렬 해결책) */
+/* 프로젝트 특징 리스트 공통 스타일 */
 .project-features {
     color: var(--text-sub);
     font-size: 0.9rem;
-    list-style: none;
-    padding: 0;
-    
-    /* 1. 박스 내부 텍스트 정렬 */
     text-align: left;
-    
-    /* 2. 중앙 정렬을 위한 Grid 설정 (가장 확실한 방법) */
-    display: grid;
-    justify-content: center; /* 박스 자체를 부모 중앙으로 */
-    margin: 20px 0;
+    display: inline-block; /* 박스를 중앙으로, 텍스트는 왼쪽으로 */
+    list-style: none; /* 기본 불렛 제거 후 이모지로 대체 관리 */
+    padding: 0; 
+    margin: 10px auto;
+    max-width: 550px; /* 리스트가 너무 넓어지지 않게 조정 */
 }
 
 .project-features li {
-    margin-bottom: 12px;
-    line-height: 1.6;
-    word-break: keep-all;
-    
-    /* 3. 이모지와 텍스트가 나란히 오도록 설정 */
-    display: grid;
-    grid-template-columns: 24px 1fr; /* 이모지 영역 고정 */
-    align-items: start;
-}
-
-/* 이모지(📑, 📊 등)와 글자 사이 간격 */
-.project-features li::before {
-    content: '';
-    display: inline-block;
-    width: 5px; /* 미세 간격 조정 */
+    margin-bottom: 8px;
+    line-height: 1.5;
+    word-break: keep-all; /* 단어 단위 줄바꿈으로 깔끔하게 유지 */
 }
 
 /* 배지 스타일 */
