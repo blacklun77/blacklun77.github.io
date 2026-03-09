@@ -108,39 +108,36 @@ nav {
     transition: var(--transition);
 }
 
-/* 프로젝트 특징 리스트 공통 스타일 (Flexbox 방식) */
+/* 프로젝트 특징 리스트 공통 스타일 (좌측 정렬 완벽 대응) */
 .project-features {
     color: var(--text-sub);
     font-size: 0.9rem;
-    
-    /* 1. 박스 내부 정렬 */
-    text-align: left; 
     list-style: none;
     padding: 0;
     
-    /* 2. 전체 덩어리를 부모 중앙에 배치 */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* 내부 항목들을 왼쪽 시작점으로 정렬 */
+    /* 박스 자체를 중앙으로 보내는 설정 */
+    display: block;
+    margin: 20px auto; 
     
-    /* 3. 중앙 정렬을 위한 여백 설정 */
-    margin: 15px auto;
-    width: fit-content; /* 내용물 너비에 딱 맞게 박스 크기 조절 */
-    max-width: 90%; 
+    /* 핵심: 너비를 텍스트 길이에 맞추고 좌측 정렬 유지 */
+    width: fit-content;
+    text-align: left; 
 }
 
 .project-features li {
-    margin-bottom: 10px;
+    margin-bottom: 12px; /* 가독성을 위해 간격 확장 */
     line-height: 1.6;
     word-break: keep-all;
+    
+    /* 이모지와 텍스트가 수직으로 잘 맞도록 설정 */
     display: flex;
     align-items: flex-start;
 }
 
-/* 이모지와 텍스트 사이 간격 최적화 */
+/* 이모지 아이콘 정렬용 가상 요소 (선택 사항) */
 .project-features li::before {
     content: '';
-    margin-right: 8px;
+    margin-right: 5px;
 }
 
 /* 배지 스타일 */
