@@ -108,32 +108,31 @@ nav {
     transition: var(--transition);
 }
 
-/* 프로젝트 특징 리스트 공통 스타일 (정렬 문제 해결판) */
+/* 프로젝트 특징 리스트 공통 스타일 (최종 정렬 해결책) */
 .project-features {
     color: var(--text-sub);
     font-size: 0.9rem;
     list-style: none;
     padding: 0;
     
-    /* 1. 덩어리 전체를 중앙으로 보내기 */
-    display: table; /* fit-content보다 브라우저 호환성이 더 강력합니다 */
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 15px;
-    margin-bottom: 15px;
-
-    /* 2. 내부 텍스트는 좌측 정렬 */
+    /* 1. 박스 내부 텍스트 정렬 */
     text-align: left;
+    
+    /* 2. 중앙 정렬을 위한 Grid 설정 (가장 확실한 방법) */
+    display: grid;
+    justify-content: center; /* 박스 자체를 부모 중앙으로 */
+    margin: 20px 0;
 }
 
 .project-features li {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     line-height: 1.6;
     word-break: keep-all;
     
-    /* 3. 이모지와 텍스트 간격 정렬 */
-    display: flex;
-    align-items: flex-start;
+    /* 3. 이모지와 텍스트가 나란히 오도록 설정 */
+    display: grid;
+    grid-template-columns: 24px 1fr; /* 이모지 영역 고정 */
+    align-items: start;
 }
 
 /* 이모지(📑, 📊 등)와 글자 사이 간격 */
