@@ -108,22 +108,39 @@ nav {
     transition: var(--transition);
 }
 
-/* 프로젝트 특징 리스트 공통 스타일 */
+/* 프로젝트 특징 리스트 공통 스타일 (Flexbox 방식) */
 .project-features {
     color: var(--text-sub);
     font-size: 0.9rem;
-    text-align: left;
-    display: inline-block; /* 박스를 중앙으로, 텍스트는 왼쪽으로 */
-    list-style: none; /* 기본 불렛 제거 후 이모지로 대체 관리 */
-    padding: 0; 
-    margin: 10px auto;
-    max-width: 550px; /* 리스트가 너무 넓어지지 않게 조정 */
+    
+    /* 1. 박스 내부 정렬 */
+    text-align: left; 
+    list-style: none;
+    padding: 0;
+    
+    /* 2. 전체 덩어리를 부모 중앙에 배치 */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* 내부 항목들을 왼쪽 시작점으로 정렬 */
+    
+    /* 3. 중앙 정렬을 위한 여백 설정 */
+    margin: 15px auto;
+    width: fit-content; /* 내용물 너비에 딱 맞게 박스 크기 조절 */
+    max-width: 90%; 
 }
 
 .project-features li {
-    margin-bottom: 8px;
-    line-height: 1.5;
-    word-break: keep-all; /* 단어 단위 줄바꿈으로 깔끔하게 유지 */
+    margin-bottom: 10px;
+    line-height: 1.6;
+    word-break: keep-all;
+    display: flex;
+    align-items: flex-start;
+}
+
+/* 이모지와 텍스트 사이 간격 최적화 */
+.project-features li::before {
+    content: '';
+    margin-right: 8px;
 }
 
 /* 배지 스타일 */
