@@ -108,14 +108,21 @@ nav {
     transition: var(--transition);
 }
 
-/*  리스트 좌측 정렬 설정 */
+/* 프로젝트 특징 리스트 공통 스타일 */
 .project-features {
-    color: var(--text-sub); font-size: 0.9rem; text-align: left; max-width: 500px; margin: 10px auto;
+    color: var(--text-sub);
+    font-size: 0.9rem;
+    text-align: left;
+    display: inline-block; /* 박스를 중앙으로, 텍스트는 왼쪽으로 */
+    list-style-position: outside;
+    padding-left: 25px;
+    margin: 10px auto;
+    width: 100%; /* 부모 너비 안에서 정렬 보장 */
+    max-width: 500px; /* 너무 퍼지지 않게 제한 */
 }
 
 .project-features li {
-            margin-bottom: 8px;
-            line-height: 1.5;
+    margin-bottom: 8px; /* 항목 간 간격 확보 */
 }
 
 /* 배지 스타일 */
