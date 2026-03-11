@@ -51,7 +51,7 @@
 
 ## 📫 Contact
 - **Email**: [blacklun.yoo@gmail.com](mailto:blacklun.yoo@gmail.com)
-- **Github**: [blacklun.github.io](https://blacklun77.github.io/)
+- **Github**: [blacklun77.github.io](https://blacklun77.github.io/)
 
 ---
 © 2026 blacklun. Built with Flutter.
