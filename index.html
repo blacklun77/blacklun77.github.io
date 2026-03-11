@@ -366,13 +366,7 @@
             // 최종 결정된 언어로 설정 (초기 실행 시엔 URL 업데이트 안 함)
             setLanguage(lang, false);
         }
-        
-        // 3. 페이지 로드 완료 시 실행
-        window.addEventListener('DOMContentLoaded', () => {
-            initLanguage();      // 언어 설정 초기화
-            setupSecureEmail();  // 이전 단계에서 만든 이메일 보안 함수 (필요시 유지)
-        });
-        
+                
         // 스팸 방지를 위한 이메일 암호화 조립 함수
         function setupSecureEmail() {
             const user = "blacklun.yoo";
@@ -386,8 +380,15 @@
             }
         }
         
-        // 페이지 로드 후 실행
-        window.addEventListener('DOMContentLoaded', setupSecureEmail);
+        // 이벤트 리스너 통합 관리
+        window.addEventListener('DOMContentLoaded', () => {
+            // URL 파라미터 확인 및 언어 초기화
+            const urlParams = new URLSearchParams(window.location.search);
+            let lang = urlParams.get('lang') || (navigator.language.startsWith('ko') ? 'ko' : 'en');
+            setLanguage(lang, false);
+
+            setupSecureEmail();
+        });
     </script>
 </body>
 </html>
