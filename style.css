@@ -113,11 +113,11 @@ nav {
     color: var(--text-sub);
     font-size: 0.9rem;
     text-align: left;
-    display: inline-block; /* 박스를 중앙으로, 텍스트는 왼쪽으로 */
+    width: 100%;
+    align-self: flex-start;
     list-style: none; /* 기본 불렛 제거 후 이모지로 대체 관리 */
     padding: 0; 
-    margin: 10px auto;
-    max-width: 550px; /* 리스트가 너무 넓어지지 않게 조정 */
+    margin: 10px 0;
 }
 
 .project-features li {
@@ -140,19 +140,19 @@ nav {
 .project-item ul {
     display: flex;
     flex-direction: column;
-    align-items: center; /* 리스트 덩어리를 중앙으로 */
+    align-items: flex-start; /* 텍스트는 좌측 정렬 */
     gap: 12px;
-    margin: 25px 0;
+    margin: 25px auto; /* 덩어리 자체는 중앙 정렬 */
     padding: 0;
     list-style: none;
-    width: 100%;
+    width: max-content; /* 가장 긴 항목 길이에 맞춰 너비 조절 */
+    max-width: 100%;
 }
 
 .project-item ul li {
     color: var(--text-sub);
     font-size: 0.95rem;
-    text-align: left; /* 내용은 읽기 편하게 왼쪽 정렬 */
-    max-width: fit-content; /* 텍스트 길이에 맞춤 */
+    text-align: left;
     word-break: keep-all;
 }
 
