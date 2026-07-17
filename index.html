@@ -45,10 +45,10 @@
         </div>
         <nav>
             <strong>blacklun.github.io</strong>
-            <div class="lang-switch">
+            <!-- <div class="lang-switch">
                 <button onclick="setLanguage('ko')" id="btn-ko" class="active">한</button>
                 <button onclick="setLanguage('en')" id="btn-en">EN</button>
-            </div>
+            </div> -->
         </nav>
         <div id="hero">
             <h1 class="lang-ko">안녕하세요, 앱 개발자 blacklun입니다.</h1>
@@ -205,7 +205,8 @@
                 <h3 class="lang-ko">✝️ 쉬운 성경</h3>
                 <h3 class="lang-en">✝️ Easy Read Bible</h3>
                 <p class="lang-ko"><strong>"다양한 성경 번역본을 오프라인 환경에서 쾌적하게 읽고 묵상하세요."</strong></p>
-                <p class="lang-en"><strong>"Read and meditate on various Bible translations comfortably offline."</strong></p>
+                <p class="lang-en"><strong>"Read and meditate on various Bible translations comfortably
+                        offline."</strong></p>
                 <hr style="border: 0.5px solid var(--border-color); margin: 15px 0;">
                 <ul class="project-features">
                     <li class="lang-ko">🙏 매일 묵상하는 오늘의 말씀(Daily Verse) 및 햅틱 피드백 지원</li>
@@ -232,7 +233,8 @@
                 <h3 class="lang-ko">🎮 2048 퍼즐 (Bloomix2048)</h3>
                 <h3 class="lang-en">🎮 2048 Puzzle (Bloomix2048)</h3>
                 <p class="lang-ko"><strong>"정통 2048 룰에 귀여운 '이모지 진화 체인' 모드를 더한 반응형 퍼즐 게임"</strong></p>
-                <p class="lang-en"><strong>"A responsive puzzle game adding a cute 'Emoji Evolution Chain' to classic 2048."</strong></p>
+                <p class="lang-en"><strong>"A responsive puzzle game adding a cute 'Emoji Evolution Chain' to classic
+                        2048."</strong></p>
                 <hr style="border: 0.5px solid var(--border-color); margin: 15px 0;">
                 <ul class="project-features">
                     <li class="lang-ko">🐣 동물, 에너지 등 글로벌 독창적 이모지 진화 체인 테마 탑재</li>
@@ -532,13 +534,13 @@
             if (lang === 'ko') {
                 koElements.forEach(el => el.style.display = 'block');
                 enElements.forEach(el => el.style.display = 'none');
-                btnKo.classList.add('active');
-                btnEn.classList.remove('active');
+                if (btnKo) btnKo.classList.add('active');
+                if (btnEn) btnEn.classList.remove('active');
             } else {
                 koElements.forEach(el => el.style.display = 'none');
                 enElements.forEach(el => el.style.display = 'block');
-                btnKo.classList.remove('active');
-                btnEn.classList.add('active');
+                if (btnKo) btnKo.classList.remove('active');
+                if (btnEn) btnEn.classList.add('active');
             }
 
             // 주소창의 파라미터를 변경 (페이지 새로고침 없음)
@@ -580,9 +582,11 @@
         // 이벤트 리스너 통합 관리
         window.addEventListener('DOMContentLoaded', () => {
             // URL 파라미터 확인 및 언어 초기화
-            const urlParams = new URLSearchParams(window.location.search);
-            let lang = urlParams.get('lang') || (navigator.language.startsWith('ko') ? 'ko' : 'en');
-            setLanguage(lang, false);
+            // const urlParams = new URLSearchParams(window.location.search);
+            // let lang = urlParams.get('lang') || (navigator.language.startsWith('ko') ? 'ko' : 'en');
+            // setLanguage(lang, false);
+            // 기본 언어를 영어(en)로 강제 고정
+            setLanguage('en', false);
 
             setupSecureEmail();
         });
