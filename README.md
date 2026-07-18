@@ -82,7 +82,7 @@
   - 태블릿 등 대화면 기기를 지원하는 번역문/원문 상하 분할 보기 (Split-View) 및 단락별 심층 해설(Commentary)
   - 6개 국어 다국어 지원(한국어, 영어, 일본어, 중국어 3종) 및 미지원 로케일 접속 시 영어(en) 자동 Fallback
   - gzip+AES-256-GCM 암호화 에셋 패키징 및 디지털 서명(`manifest.sig`) 무결성 런타임 검증
-- **Link**: [iOS App Store]() | [Google Play Store](https://play.google.com/store/apps/details?id=com.easyreadbible.app)
+- **Link**: [iOS App Store](https://apps.apple.com/app/easy-read-bible/id6770253137) | [Google Play Store](https://play.google.com/store/apps/details?id=com.easyreadbible.app)
 
 ### 7. 2048 퍼즐 게임 (Bloomix2048)
 - **Description**: 정통 2048 룰에 귀여운 '이모지 진화 체인' 모드를 더한 반응형 퍼즐 게임
