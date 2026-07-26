@@ -72,6 +72,9 @@ nav {
 
 .lang-ko { display: inline-block; }
 .lang-en { display: none; }
+.lang-ja { display: none; }
+.lang-zh { display: none; }
+.lang-zh-Hant { display: none; }
 
 /* 3. 기술 스택 (로고 & 배지) */
 .tech-logos, .tech-badges {
