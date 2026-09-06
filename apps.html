@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blacklun | Apps & Downloads</title>
+
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="naverbot" content="noindex, nofollow">
+
+    <link rel="icon"
+        href="https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-original.svg">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --card-hover: rgba(51, 65, 85, 0.85);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.12) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        /* Header & Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .brand-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .brand-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-top: 2px;
+        }
+
+        /* Language Switcher */
+        .lang-switch {
+            display: flex;
+            gap: 6px;
+            background: rgba(15, 23, 42, 0.8);
+            padding: 4px;
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+        }
+
+        .lang-switch button {
+            background: transparent;
+            border: none;
+            color: var(--text-sub);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-switch button:hover {
+            color: var(--text-main);
+        }
+
+        .lang-switch button.active {
+            background: var(--accent);
+            color: #0f172a;
+            box-shadow: 0 2px 8px rgba(56, 189, 248, 0.4);
+        }
+
+        /* Table / Card List Layout */
+        .app-table {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .app-row {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 16px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .app-row:hover {
+            transform: translateY(-2px);
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), 0 0 12px var(--accent-glow);
+            background: var(--card-hover);
+        }
+
+        /* App Left Info */
+        .app-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            min-width: 0;
+            flex: 1;
+        }
+
+        .app-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            flex-shrink: 0;
+        }
+
+        .app-text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            min-width: 0;
+        }
+
+        .app-name {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-main);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .app-tag {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* App Right Buttons */
+        .app-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .store-badge-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.15s ease, opacity 0.15s ease;
+        }
+
+        .store-badge-link:hover {
+            transform: scale(1.04);
+            opacity: 0.95;
+        }
+
+        .store-badge-link img {
+            display: block;
+        }
+
+        .badge-appstore {
+            height: 40px;
+        }
+
+        .badge-googleplay {
+            height: 52px;
+            margin-top: -6px;
+            margin-bottom: -6px;
+        }
+
+        .empty-placeholder {
+            width: 120px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Multi-language Display Control */
+        body.lang-ko .lang-en,
+        body.lang-ko .lang-ja,
+        body.lang-ko .lang-zh,
+        body.lang-ko .lang-zh-Hant { display: none !important; }
+
+        body.lang-en .lang-ko,
+        body.lang-en .lang-ja,
+        body.lang-en .lang-zh,
+        body.lang-en .lang-zh-Hant { display: none !important; }
+
+        body.lang-ja .lang-ko,
+        body.lang-ja .lang-en,
+        body.lang-ja .lang-zh,
+        body.lang-ja .lang-zh-Hant { display: none !important; }
+
+        body.lang-zh .lang-ko,
+        body.lang-zh .lang-en,
+        body.lang-zh .lang-ja,
+        body.lang-zh .lang-zh-Hant { display: none !important; }
+
+        body.lang-zh-Hant .lang-ko,
+        body.lang-zh-Hant .lang-en,
+        body.lang-zh-Hant .lang-ja,
+        body.lang-zh-Hant .lang-zh { display: none !important; }
+
+        /* Responsive */
+        @media (max-width: 650px) {
+            .app-row {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 18px;
+                gap: 14px;
+            }
+
+            .app-info {
+                width: 100%;
+            }
+
+            .app-actions {
+                width: 100%;
+                justify-content: flex-end;
+                padding-top: 10px;
+                border-top: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .app-icon {
+                width: 52px;
+                height: 52px;
+            }
+        }
+    </style>
+</head>
+
+<body class="lang-ko">
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="brand">
+                <div>
+                    <h1 class="brand-title">blacklun Apps</h1>
+                    <div class="brand-subtitle lang-ko">공식 모바일 앱 다운로드 목록</div>
+                    <div class="brand-subtitle lang-en">Official Mobile App Downloads</div>
+                    <div class="brand-subtitle lang-ja">公式モバイルアプリのダウンロード</div>
+                    <div class="brand-subtitle lang-zh">官方移动应用下载目录</div>
+                    <div class="brand-subtitle lang-zh-Hant">官方行動應用下載目錄</div>
+                </div>
+            </div>
+
+            <!-- Language Switcher -->
+            <div class="lang-switch">
+                <button onclick="setLanguage('en')" id="btn-en">EN</button>
+                <button onclick="setLanguage('ko')" id="btn-ko" class="active">한</button>
+                <button onclick="setLanguage('ja')" id="btn-ja">日</button>
+                <button onclick="setLanguage('zh')" id="btn-zh">简</button>
+                <button onclick="setLanguage('zh-Hant')" id="btn-zh-Hant">繁</button>
+            </div>
+        </header>
+
+        <!-- App Table / Card List -->
+        <main class="app-table">
+
+            <!-- 1. 블룸믹스 크러시 -->
+            <div class="app-row">
+                <div class="app-info">
+                    <img src="./assets/icons/bloomix_crush_app_icon.png" alt="Bloomix Crush" class="app-icon">
+                    <div class="app-text">
+                        <div class="app-name lang-ko">블룸믹스 크러시</div>
+                        <div class="app-name lang-en">Bloomix Crush</div>
+                        <div class="app-name lang-ja">ブルーミックス クラッシュ</div>
+                        <div class="app-name lang-zh">Bloomix Crush</div>
+                        <div class="app-name lang-zh-Hant">Bloomix Crush</div>
+
+                        <div class="app-tag lang-ko">매치-3 퍼즐 게임 · 60fps 애니메이션</div>
+                        <div class="app-tag lang-en">Match-3 Puzzle Game · 60fps Dynamic Animation</div>
+                        <div class="app-tag lang-ja">マッチ3パズルゲーム · 60fpsアニメーション</div>
+                        <div class="app-tag lang-zh">三消益智游戏 · 60fps 动态动画</div>
+                        <div class="app-tag lang-zh-Hant">三消益智遊戲 · 60fps 動態動畫</div>
+                    </div>
+                </div>
+                <div class="app-actions">
+                    <!-- App Store (국가별) -->
+                    <a href="https://apps.apple.com/kr/app/bloomix-crush/id6791850251" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-ko">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ko-kr?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/us/app/bloomix-crush/id6791850251" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-en">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/jp/app/bloomix-crush/id6791850251" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-ja">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ja-jp?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/cn/app/bloomix-crush/id6791850251" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-zh">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/zh-cn?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/tw/app/bloomix-crush/id6791850251" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-zh-Hant">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/zh-tw?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+
+                    <!-- Google Play (다국어 뱃지) -->
+                    <a href="https://play.google.com/store/apps/details?id=com.bloomixcrush.game" target="_blank" rel="noopener noreferrer" class="store-badge-link">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/ko_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-ko">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-en">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/ja_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-ja">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/zh-cn_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-zh">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/zh-tw_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-zh-Hant">
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2. 쉬운 성경 -->
+            <div class="app-row">
+                <div class="app-info">
+                    <img src="./assets/icons/easy_read_bible_app_icon.png" alt="Easy Read Bible" class="app-icon">
+                    <div class="app-text">
+                        <div class="app-name lang-ko">쉬운 성경</div>
+                        <div class="app-name lang-en">Easy Read Bible</div>
+                        <div class="app-name lang-ja">やさしい聖書</div>
+                        <div class="app-name lang-zh">易读圣经</div>
+                        <div class="app-name lang-zh-Hant">易讀聖經</div>
+
+                        <div class="app-tag lang-ko">오프라인 성경 통독 · 오늘의 말씀 & 묵상</div>
+                        <div class="app-tag lang-en">Offline Bible Reading · Daily Verse & Meditation</div>
+                        <div class="app-tag lang-ja">オフライン聖書通読 · 今日の御言葉と瞑想</div>
+                        <div class="app-tag lang-zh">离线圣经阅读 · 今日金句与默想</div>
+                        <div class="app-tag lang-zh-Hant">離線聖經閱讀 · 今日金句與默想</div>
+                    </div>
+                </div>
+                <div class="app-actions">
+                    <a href="https://apps.apple.com/kr/app/easy-read-bible/id6770253137" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-ko">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ko-kr?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/us/app/easy-read-bible/id6770253137" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-en">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/jp/app/easy-read-bible/id6770253137" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-ja">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ja-jp?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/tw/app/easy-read-bible/id6770253137" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-zh">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/zh-cn?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/tw/app/easy-read-bible/id6770253137" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-zh-Hant">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/zh-tw?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+
+                    <a href="https://play.google.com/store/apps/details?id=com.easyreadbible.app" target="_blank" rel="noopener noreferrer" class="store-badge-link">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/ko_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-ko">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-en">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/ja_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-ja">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/zh-cn_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-zh">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/zh-tw_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-zh-Hant">
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3. 2048 퍼즐 -->
+            <div class="app-row">
+                <div class="app-info">
+                    <img src="./assets/icons/bloomix2048_app_icon.png" alt="Bloomix 2048" class="app-icon">
+                    <div class="app-text">
+                        <div class="app-name lang-ko">2048 퍼즐 (Bloomix 2048)</div>
+                        <div class="app-name lang-en">2048 Puzzle (Bloomix 2048)</div>
+                        <div class="app-name lang-ja">2048パズル (Bloomix 2048)</div>
+                        <div class="app-name lang-zh">2048拼图 (Bloomix 2048)</div>
+                        <div class="app-name lang-zh-Hant">2048拼圖 (Bloomix 2048)</div>
+
+                        <div class="app-tag lang-ko">이모지 진화 체인 · 3x3~6x6 동적 그리드</div>
+                        <div class="app-tag lang-en">Emoji Evolution · 3x3 to 6x6 Dynamic Grids</div>
+                        <div class="app-tag lang-ja">絵文字進化チェーン · 3x3〜6x6動的グリッド</div>
+                        <div class="app-tag lang-zh">表情符号进化链 · 3x3至6x6动态网格</div>
+                        <div class="app-tag lang-zh-Hant">表情符號進化鏈 · 3x3至6x6動態網格</div>
+                    </div>
+                </div>
+                <div class="app-actions">
+                    <a href="https://play.google.com/store/apps/details?id=com.bloomix2048.app" target="_blank" rel="noopener noreferrer" class="store-badge-link">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/ko_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-ko">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-en">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/ja_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-ja">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/zh-cn_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-zh">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/zh-tw_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-zh-Hant">
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4. 쉬운 독서 -->
+            <div class="app-row">
+                <div class="app-info">
+                    <img src="./assets/icons/easy_read_book_app_icon.png" alt="ReadEase: Easy Reading" class="app-icon">
+                    <div class="app-text">
+                        <div class="app-name lang-ko">쉬운 독서</div>
+                        <div class="app-name lang-en">ReadEase: Easy Reading</div>
+                        <div class="app-name lang-ja">やさしい読書</div>
+                        <div class="app-name lang-zh">轻读经典</div>
+                        <div class="app-name lang-zh-Hant">輕讀經典</div>
+
+                        <div class="app-tag lang-ko">고전 문학 낭독 · TTS 음성 & 병렬 읽기</div>
+                        <div class="app-tag lang-en">Classic Literature · TTS Reading & Parallel View</div>
+                        <div class="app-tag lang-ja">古典文学朗読 · TTS音声と並行読書</div>
+                        <div class="app-tag lang-zh">经典名著朗读 · TTS 语音与对照阅读</div>
+                        <div class="app-tag lang-zh-Hant">經典名著朗讀 · TTS 語音與對照閱讀</div>
+                    </div>
+                </div>
+                <div class="app-actions">
+                    <a href="https://apps.apple.com/kr/app/readease-easy-reading/id6766005685" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-ko">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ko-kr?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/us/app/readease-easy-reading/id6766005685" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-en">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/jp/app/readease-easy-reading/id6766005685" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-ja">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ja-jp?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/tw/app/readease-easy-reading/id6766005685" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-zh">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/zh-cn?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/tw/app/readease-easy-reading/id6766005685" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-zh-Hant">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/zh-tw?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+
+                    <a href="https://play.google.com/store/apps/details?id=com.easyreadbook.app" target="_blank" rel="noopener noreferrer" class="store-badge-link">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/ko_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-ko">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-en">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/ja_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-ja">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/zh-cn_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-zh">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/zh-tw_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-zh-Hant">
+                    </a>
+                </div>
+            </div>
+
+            <!-- 5. 쉬운 불경 -->
+            <div class="app-row">
+                <div class="app-info">
+                    <img src="./assets/icons/easy_sutra_app_icon.png" alt="Easy Sutra" class="app-icon">
+                    <div class="app-text">
+                        <div class="app-name lang-ko">쉬운 불경</div>
+                        <div class="app-name lang-en">Easy Sutra</div>
+                        <div class="app-name lang-ja">やさしい経典</div>
+                        <div class="app-name lang-zh">易懂佛经</div>
+                        <div class="app-name lang-zh-Hant">易懂佛經</div>
+
+                        <div class="app-tag lang-ko">불교 경전 독송 · 6개국어 TTS & 해석</div>
+                        <div class="app-tag lang-en">Buddhist Scripture Chanting · 6-Language TTS</div>
+                        <div class="app-tag lang-ja">仏教経典読経 · 6ヶ国語TTSと解説</div>
+                        <div class="app-tag lang-zh">佛教经典诵读 · 6国语言 TTS 与解析</div>
+                        <div class="app-tag lang-zh-Hant">佛教經典誦讀 · 6國語言 TTS 與解析</div>
+                    </div>
+                </div>
+                <div class="app-actions">
+                    <a href="https://apps.apple.com/kr/app/easy-sutra/id6761761924" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-ko">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ko-kr?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/us/app/easy-sutra/id6761761924" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-en">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/jp/app/easy-sutra/id6761761924" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-ja">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ja-jp?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/tw/app/easy-sutra/id6761761924" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-zh">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/zh-cn?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/tw/app/easy-sutra/id6761761924" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-zh-Hant">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/zh-tw?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+
+                    <a href="https://play.google.com/store/apps/details?id=com.easysutra.app" target="_blank" rel="noopener noreferrer" class="store-badge-link">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/ko_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-ko">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-en">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/ja_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-ja">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/zh-cn_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-zh">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/zh-tw_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-zh-Hant">
+                    </a>
+                </div>
+            </div>
+
+            <!-- 6. 공과금 기록 -->
+            <div class="app-row">
+                <div class="app-info">
+                    <img src="./assets/icons/utility_log_app_icon.png" alt="Utility Log" class="app-icon">
+                    <div class="app-text">
+                        <div class="app-name lang-ko">공과금 기록</div>
+                        <div class="app-name lang-en">Utility Log: Secure Bill</div>
+                        <div class="app-name lang-ja">公共料金記録</div>
+                        <div class="app-name lang-zh">公共账单记录</div>
+                        <div class="app-name lang-zh-Hant">公用事業費用紀錄</div>
+
+                        <div class="app-tag lang-ko">영수증 OCR 스캔 · 사용량 통계 & PDF 리포트</div>
+                        <div class="app-tag lang-en">OCR Receipt Scan · Analytics & PDF Reports</div>
+                        <div class="app-tag lang-ja">領収書OCRスキャン · 使用量統計とPDFレポート</div>
+                        <div class="app-tag lang-zh">收据 OCR 扫描 · 使用量统计与 PDF 报告</div>
+                        <div class="app-tag lang-zh-Hant">收據 OCR 掃描 · 使用量統計與 PDF 報告</div>
+                    </div>
+                </div>
+                <div class="app-actions">
+                    <a href="https://apps.apple.com/kr/app/%EA%B3%B5%EA%B3%BC%EA%B8%88-%EA%B8%B0%EB%A1%9D/id6760272670" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-ko">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ko-kr?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/us/app/%EA%B3%B5%EA%B3%BC%EA%B8%88-%EA%B8%B0%EB%A1%9D/id6760272670" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-en">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/jp/app/%EA%B3%B5%EA%B3%BC%EA%B8%88-%EA%B8%B0%EB%A1%9D/id6760272670" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-ja">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ja-jp?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/cn/app/%EA%B3%B5%EA%B3%BC%EA%B8%88-%EA%B8%B0%EB%A1%9D/id6760272670" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-zh">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/zh-cn?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/tw/app/%EA%B3%B5%EA%B3%BC%EA%B8%88-%EA%B8%B0%EB%A1%9D/id6760272670" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-zh-Hant">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/zh-tw?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+
+                    <a href="https://play.google.com/store/apps/details?id=com.ks.utility_log" target="_blank" rel="noopener noreferrer" class="store-badge-link">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/ko_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-ko">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-en">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/ja_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-ja">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/zh-cn_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-zh">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/zh-tw_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-zh-Hant">
+                    </a>
+                </div>
+            </div>
+
+            <!-- 7. 내 평가 기록 -->
+            <div class="app-row">
+                <div class="app-info">
+                    <img src="./assets/icons/my_eval_record_app_icon.png" alt="My Eval Record" class="app-icon">
+                    <div class="app-text">
+                        <div class="app-name lang-ko">내 평가 기록</div>
+                        <div class="app-name lang-en">My Eval Record</div>
+                        <div class="app-name lang-ja">私の評価記録</div>
+                        <div class="app-name lang-zh">我的考核记录</div>
+                        <div class="app-name lang-zh-Hant">我的績效紀錄</div>
+
+                        <div class="app-tag lang-ko">직무 성과 지표 대시보드 · 암호화 DB & PDF 공유</div>
+                        <div class="app-tag lang-en">Performance Metrics · Encrypted DB & PDF Reports</div>
+                        <div class="app-tag lang-ja">職務パフォーマンスダッシュボード · 暗号化DB</div>
+                        <div class="app-tag lang-zh">绩效指标仪表盘 · 加密数据库与 PDF 分享</div>
+                        <div class="app-tag lang-zh-Hant">績效指標儀表盤 · 加密資料庫與 PDF 分享</div>
+                    </div>
+                </div>
+                <div class="app-actions">
+                    <a href="https://apps.apple.com/kr/app/my-eval-record/id6759724181" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-ko">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ko-kr?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/us/app/my-eval-record/id6759724181" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-en">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/jp/app/my-eval-record/id6759724181" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-ja">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ja-jp?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/cn/app/my-eval-record/id6759724181" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-zh">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/zh-cn?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/tw/app/my-eval-record/id6759724181" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-zh-Hant">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/zh-tw?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+
+                    <a href="https://play.google.com/store/apps/details?id=com.ks.my_eval_record" target="_blank" rel="noopener noreferrer" class="store-badge-link">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/ko_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-ko">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-en">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/ja_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-ja">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/zh-cn_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-zh">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/zh-tw_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-zh-Hant">
+                    </a>
+                </div>
+            </div>
+
+            <!-- 8. 내 경조사 장부 -->
+            <div class="app-row">
+                <div class="app-info">
+                    <img src="./assets/icons/my_money_log_app_icon.png" alt="My Event Ledger" class="app-icon">
+                    <div class="app-text">
+                        <div class="app-name lang-ko">내 경조사 장부</div>
+                        <div class="app-name lang-en">My Gift & Event Ledger</div>
+                        <div class="app-name lang-ja">冠婚葬祭家計簿</div>
+                        <div class="app-name lang-zh">随礼账本</div>
+                        <div class="app-name lang-zh-Hant">紅白包帳本</div>
+
+                        <div class="app-tag lang-ko">마음을 주고받은 기록 · 퀵 버튼 간편 입력 & 대시보드</div>
+                        <div class="app-tag lang-en">Gift & Event Ledger · Quick Entry & Dashboard</div>
+                        <div class="app-tag lang-ja">心のやり取り記録 · クイック入力とダッシュボード</div>
+                        <div class="app-tag lang-zh">心意往来记录 · 快捷按钮简便记录与仪表盘</div>
+                        <div class="app-tag lang-zh-Hant">心意往來記錄 · 快捷按鈕簡便記錄與儀表盤</div>
+                    </div>
+                </div>
+                <div class="app-actions">
+                    <a href="https://apps.apple.com/kr/app/%EB%82%B4-%EA%B2%BD%EC%A1%B0%EC%82%AC-%EC%9E%A5%EB%B6%80/id6759233404" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-ko">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ko-kr?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/us/app/%EB%82%B4-%EA%B2%BD%EC%A1%B0%EC%82%AC-%EC%9E%A5%EB%B6%80/id6759233404" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-en">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/jp/app/%EB%82%B4-%EA%B2%BD%EC%A1%B0%EC%82%AC-%EC%9E%A5%EB%B6%80/id6759233404" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-ja">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ja-jp?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/cn/app/%EB%82%B4-%EA%B2%BD%EC%A1%B0%EC%82%AC-%EC%9E%A5%EB%B6%80/id6759233404" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-zh">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/zh-cn?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+                    <a href="https://apps.apple.com/tw/app/%EB%82%B4-%EA%B2%BD%EC%A1%B0%EC%82%AC-%EC%9E%A5%EB%B6%80/id6759233404" target="_blank" rel="noopener noreferrer" class="store-badge-link lang-zh-Hant">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/zh-tw?size=250x83" alt="App Store" class="badge-appstore">
+                    </a>
+
+                    <a href="https://play.google.com/store/apps/details?id=com.ks.mymoneylog" target="_blank" rel="noopener noreferrer" class="store-badge-link">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/ko_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-ko">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-en">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/ja_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-ja">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/zh-cn_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-zh">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/zh-tw_badge_web_generic.png" alt="Google Play" class="badge-googleplay lang-zh-Hant">
+                    </a>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 blacklun. All rights reserved. · <a href="./index.html">Portfolio Main</a></p>
+        </footer>
+    </div>
+
+    <!-- Multi-language Script -->
+    <script>
+        function setLanguage(lang) {
+            document.body.className = 'lang-' + lang;
+            document.documentElement.lang = lang;
+
+            const buttons = document.querySelectorAll('.lang-switch button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            const activeBtn = document.getElementById('btn-' + lang);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+            }
+
+            try {
+                localStorage.setItem('preferred_language', lang);
+            } catch (e) {}
+        }
+
+        // Initialize language from localStorage or browser settings
+        (function initLang() {
+            let savedLang = 'ko';
+            try {
+                savedLang = localStorage.getItem('preferred_language');
+            } catch (e) {}
+
+            if (!savedLang) {
+                const userLang = navigator.language || navigator.userLanguage;
+                if (userLang.includes('zh-TW') || userLang.includes('zh-HK') || userLang.includes('zh-Hant')) {
+                    savedLang = 'zh-Hant';
+                } else if (userLang.startsWith('zh')) {
+                    savedLang = 'zh';
+                } else if (userLang.startsWith('ja')) {
+                    savedLang = 'ja';
+                } else if (userLang.startsWith('ko')) {
+                    savedLang = 'ko';
+                } else {
+                    savedLang = 'en';
+                }
+            }
+            setLanguage(savedLang);
+        })();
+    </script>
+</body>
+
+</html>
