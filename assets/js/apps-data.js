@@ -147,6 +147,19 @@ const APPS_DATA = [
             id: "6759233404",
             slug: "%EB%82%B4-%EA%B2%BD%EC%A1%B0%EC%82%AC-%EC%9E%A5%EB%B6%80"
         }
+    },
+    {
+        id: "com.bloomixsudoku.game",
+        emoji: "🧩",
+        icon: "./assets/icons/sudoku_app_icon.png",
+        names: {
+            ko: "Bloomix Sudoku",
+            en: "Bloomix Sudoku",
+            ja: "Bloomix Sudoku",
+            zh: "Bloomix Sudoku",
+            "zh-Hant": "Bloomix Sudoku"
+        },
+        appStore: null // Google Play 전용
     }
 ];
 
