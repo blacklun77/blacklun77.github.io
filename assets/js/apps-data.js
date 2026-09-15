@@ -15,7 +15,10 @@ const APPS_DATA = [
             zh: "Bloomix Sudoku",
             "zh-Hant": "Bloomix Sudoku"
         },
-        appStore: null // Google Play 전용
+        appStore: {
+            id: "6804439417",
+            slug: "bloomix-sudoku"
+        }
     },
     {
         id: "com.bloomixcrush.game",
